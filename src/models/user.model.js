@@ -19,10 +19,17 @@ const userSchema = new mongoose.Schema(
         },
         avatar:{
             type:String, //cloudinary url
-            required:true
         },
         coverImage:{
             type:String  //cloudinary url
+        },
+        totalVideoUpload:{
+            type:Number,
+            default: 0
+        },
+        accountType: {
+            type:String,
+            enum:["Admin","User"]
         },
         watchHistory:[
             {

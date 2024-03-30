@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 
+
 const videoSchema = new mongoose.Schema(
     {
         videoFile:{
@@ -15,8 +16,22 @@ const videoSchema = new mongoose.Schema(
             type:String,
             required:true
         },
+        tags: {
+            type:[String],
+            required:true
+        },
         description:{
             type:String,
+            required:true
+        },
+        category:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Category",
+            required:true
+        },
+        status:{
+            type:String,
+            enum:["Public","Private"],
             required:true
         },
         duration:{
